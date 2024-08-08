@@ -1,0 +1,96 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #8EC5FC;
+background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); ;
+display: flex;
+justify-content: center;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+.contenedor{
+    
+    border-style:dashed;
+    border-color: #FFE5E5;
+    border-radius: 30px;
+}
+.encabezado h1{
+    font-family: "Rubik Mono One", monospace;
+}
+.encabezado h2{
+    font-family: "Lilita One", sans-serif;
+}
+.tareas h2{
+    font-family: "Anton", sans-serif;
+    font-weight: 900;
+    color: blue; 
+}
+.contenedor{
+max-width: 80%;
+width: 400px;
+height: 600px;
+margin: 0 auto;
+padding: 40px;
+}
+.encabezado{
+    padding: 10px 0 5px 0;
+    
+}
+.agregar{
+   background-color: #B1AFFF;
+    border-radius: 15px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 70px;
+}
+.agregar input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: #C0D6E8;
+    padding-left: 10px;
+}
+.agregar input::placeholder{
+    font-size: 1.1rem;
+    color: #7C00FE;
+    
+}
+.agregar i{
+    font-size: 45px;
+    color: #694F8E;
+}
+.agregar i:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+/*seccion de tareas*/
+.tareas h2{
+    margin-bottom: 20px;
+
+}
+.tareas li{
+    background-color:#C0D6E8 ;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.tareas{
+    font-size: 25px;
+}
+.tareas i:hover{
+    color: #FFE5E5;
+    cursor: pointer;
+}
+.tachado{
+    text-decoration: line-through;
+    color: #AC87C5;
+}
