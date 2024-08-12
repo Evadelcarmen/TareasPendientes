@@ -1,7 +1,7 @@
 //definir las contantes
 const fecha = document.querySelector('#fecha');
 const lista = document.querySelector('#lista');
-const elemento = document.querySelector('#element');
+const elemento = document.querySelector('#elemento');
 const input = document.querySelector('#input');
 const botonAgregar = document.querySelector('#botonAgregar');
 const check = 'bi-record-circle';
@@ -16,22 +16,22 @@ fecha.innerHTML = FECHA.toLocaleDateString('es-MX',{
     month:'short',
     day:'numeric'
 
-})
+});
 //funcion para agregar una tarea
 function agregarTarea(tarea,id,hecho,eliminar) {
     if(eliminar){
         return
-    }
+    };
     const realizado = hecho ? check : uncheck;
-    const LINE = hecho ? tachado : ''
+    const LINE = hecho ? tachado : '';
     const elemento = `<li id="elemento">
-                     <i id="${id}" data="hecho" class="bi ${realizado}"></i>
-                    <p class="tarea-lista text ${LINE}">${tarea}</p>
-                    <i id="${id}" data="eliminar" class="bi bi-x"></i>
-                    </li>`
+    <i id="${id}" data="hecho" class="bi ${realizado}"></i>
+    <p class="tarea-lista text ${LINE}">${tarea}</p>
+    <i id="${id}" data="eliminar" class="bi bi-x"></i>
+</li>`
                     lista.insertAdjacentHTML("beforeend",elemento);
 };
-function tareaRealizada(elemento) {
+function tareaRealizada(element) {
     element.classlist.toggle(check);
     element.classlist.toggle(uncheck);
     
@@ -40,34 +40,34 @@ function tareaRealizada(elemento) {
     
 }
 function tareaEliminada(element){
-    element-parentNode.parentNode.removeChild(element.parentNode);
+    element.parentNode.parentNode.removeChild(element.parentNode);
     LIST[element.id].eliminar = true;
 };
-botonAgregar.addEventListener("click",() => {
+botonAgregar.addEventListener("click", () => {
     const tarea = input.value;
     if(tarea){
-        agregarTarea(tarea,id,false,false)
+        agregarTarea(tarea, id, false, false)
         LIST.push({
-            nombre:tarea,
-            id:id,
-            hecho:false,
-            eliminar:false,
+            nombre: tarea,
+            id: id,
+            hecho: false,
+            eliminar: false,
         });
-        localStorage.setItem("TODO",JSON.stringify(LIST));
+        localStorage.setItem("TODO", JSON.stringify(LIST));
         id++;
         input.value = "";
     }
 
 });
-lista.addEventListener("click", function(event){
+lista.addEventListener("click", function (event){
     const element = event.target;
     const elementData = element.attributes.data.value;
-    if (elementData = "hecho") {
+    if (elementData == "hecho") {
         tareaRealizada(element);
     } else if (elementData == "eliminar") {
         tareaEliminada(element);
     };
-    localStorage.setItem("TODO",JSON.stringify(LIST));
+    localStorage.setItem("TODO", JSON.stringify(LIST));
 });
 let data = localStorage.getItem("TODO");
 if (data) {
